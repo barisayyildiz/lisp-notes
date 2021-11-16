@@ -68,12 +68,98 @@
 
 ;; =================================================
 
-(if (= 5 5)
-	(format t "hello world ~%")
-)
+;; ;; Loops
+
+;; (loop for x from 1 to 10
+;; 	do (print x)
+;; )
+
+;; (setq x 1)
+;; (loop 
+;; 	(format t "value of x : ~d ~%" x)
+;; 	(setq x (+ x 1))
+;; 	(when (> x 10) (return x))
+;; )
+
+;; (loop for x in '(name1 name2 name3) do 
+;; 	(format t "~s ~%" x)
+;; )
 
 
+;; (loop for x from 0 to 100
+;; 	do 
+;; 	(if (evenp x)
+;; 		(format t "~a is even~%" x)
+;; 		(format t "~a is odd~%" x)
+;; 	)
+;; )
 
+
+;; =================================================
+
+;; ;; Lists
+
+;; (cons 'superman 'batman)
+;; (list 'superman 'batman 'flash)
+;; (setq mylist (list 'superman 'batman 'flash))
+;; (format t "mylist : ~a ~%" mylist)
+;; (format t "append : ~a ~%" (cons 'aquaman mylist))
+;; (format t "First = ~a ~%" (car '(superman batman aquaman)))
+
+
+;; =================================================
+
+;; ;; LET
+
+;; (let ((x '(a b c))(y 'b)(z 'c))
+;; 	(format t "x = ~a, y = ~a, z = ~a ~%" x y z)
+;; )
+;; (let ((x 'a))
+;; 	(format t "x = ~a" x)
+;; )
+
+;; =================================================
+
+;; ;; String operations
+;; (write (length "baris"))
+
+;; (setq mychar (char "baris" 0))						;; b
+;; (format t "~a~%" (char-equal mychar #\b))
+
+;; (format t "~a~%" (char "baris" 0))				;; b
+;; (format t "~a~%" (char "baris" 1))				;; a
+;; (format t "~a~%" (char "baris" 2))				;; r
+;; (format t "~a~%" (char "baris" 3))				;; i
+;; (format t "~a~%" (char "baris" 4))				;; s
+
+;; (setq myStr "baris")
+;; (setq tempStr "")
+;; (loop for x from 0 to (- (length myStr) 1)
+;; 	do
+;; 	(setq tempStr (string (char myStr x)))
+;; 	(format t "~a~%" tempStr)
+;; 	(if (string= tempStr "b")
+;; 		(format t "Char is equal to 'b' ~%")
+;; 	)
+;; )
+
+;; =================================================
+
+;; ;; is-palindrome string
+;; (defun is-palindrome(str)
+;; 	(let ( (upperBound (- (length str) 1)) )
+;; 		(loop for x from 0 to upperBound
+;; 			do
+;; 			(if (not (char= (char str x) (char str (- upperBound x))))
+;; 				;; (format t "palindrome~%")
+;; 				;; nil
+;; 				(return-from is-palindrome nil)
+;; 			)
+;; 		)	
+;; 	)
+;; 	(return-from is-palindrome t)
+;; )
+;; (write (is-palindrome "ey edip adanada pide ye"))
 
 
 
