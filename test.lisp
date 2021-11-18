@@ -151,16 +151,65 @@
 ;; 		(loop for x from 0 to upperBound
 ;; 			do
 ;; 			(if (not (char= (char str x) (char str (- upperBound x))))
-;; 				;; (format t "palindrome~%")
-;; 				;; nil
 ;; 				(return-from is-palindrome nil)
 ;; 			)
 ;; 		)	
 ;; 	)
 ;; 	(return-from is-palindrome t)
 ;; )
-;; (write (is-palindrome "ey edip adanada pide ye"))
+;; (format t "~a" (is-palindrome "12321"))
 
+;; =================================================
+
+;; ;; number-of-occurences string
+;; (defvar counter 0)
+;; (defun number-of-occurences(mylist target)
+;; 	(loop for item in mylist
+;; 		do
+;; 		(if (typep item 'list)
+;; 			(progn
+;; 				(loop for i in item
+;; 					do
+;; 					(if (= target i)
+;; 						(setq counter (+ 1 counter))
+;; 					)
+;; 				)
+;; 			)
+;; 			(if (= target item)
+;; 				(setq counter (+ 1 counter))
+;; 			)
+;; 		)
+;; 	)
+;; )
+
+;; (setq mylist (list 1 2 (list 1 2 3)))
+;; (number-of-occurences mylist 3)
+;; (format t "counter : ~a~%" counter)
+
+;; ;; =================================================
+;; (defun reverse-list(mylist)
+;; 	(let ( (len (length mylist)) )
+;; 		(loop for index from 0 to (- len 1)					;; iterate over list
+;; 			do
+;; 			(if (typep (nth index mylist) 'list)
+;; 				(progn
+;; 					(setf (nth index mylist) (reverse (nth index mylist))) 		;; reverse inner list
+;; 				)
+;; 			)
+;; 		)
+;; 		(setq mylist (reverse mylist))							;; reverse outer list
+;; 		(return-from reverse-list mylist)
+;; 	)
+;; )
+
+;; (setq mylist (list (list 1 2 3) (list 3 4 5)))
+
+;; ;; (write (length (nth 1 mylist)))
+;; ;; (setf (nth 1 mylist) "değişti!!")
+
+;; (format t "before : ~a~%" mylist)
+;; (setf mylist (reverse-list mylist))
+;; (format t "after : ~a~%" mylist)
 
 
 
