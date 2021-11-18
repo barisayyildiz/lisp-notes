@@ -186,7 +186,7 @@
 ;; (number-of-occurences mylist 3)
 ;; (format t "counter : ~a~%" counter)
 
-;; ;; =================================================
+;; =================================================
 ;; (defun reverse-list(mylist)
 ;; 	(let ( (len (length mylist)) )
 ;; 		(loop for index from 0 to (- len 1)					;; iterate over list
@@ -211,5 +211,45 @@
 ;; (setf mylist (reverse-list mylist))
 ;; (format t "after : ~a~%" mylist)
 
+;; =================================================
 
+;; ;; default parameters
+;; (defun bar (&optional (a 1) (b 2) &rest rest)
+;; 	(list a b rest)
+;; )
+
+;; (format t "~a~%" (bar))
+;; (format t "~a~%" (bar 5 10 12 13 14 15))
+
+;; =================================================
+
+;; (setq str "foo")
+;; (write-line (concatenate 'string str "bar" ))
+;; ;; (write-line (concatenate 'string "Are we not drawn onward, " "we few, drawn onward to new era"))
+
+;; (defun my-average(&rest rest)
+;; 	(write rest)
+;; )
+
+;; (my-average)
+
+;; =================================================
+;; ;; number palindrome check
+;; (defun is-number-palindrome(number)
+;; 	(let ( (mult 1) (total 0) )
+;; 		(if (< number 0) (return-from is-number-palindrome nil))
+;; 		(loop
+;; 			;; (format t "number : ~a~%" number)
+;; 			(setq total (+ total (* mult (mod number 10))))			;; total += mult * (number % 10)
+;; 			(setq mult (* mult 10))									;; mult *= 10
+;; 			(setq number (/ number 10))							;; number /= 10			
+;; 			(setq number (floor number 10))
+;; 			(when (> number 0) (return ))
+;; 		)
+;; 		(if (= number total) (return-from is-number-palindrome t) (return-from is-number-palindrome nil))
+;; 	)
+;; )
+;; (write (is-number-palindrome -121))
+
+;; =================================================
 
