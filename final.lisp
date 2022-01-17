@@ -1,3 +1,24 @@
+(defun numberofdigits(n)
+	(cond
+		((zerop n) 0)
+		(t (+ 1 (numberofdigits (floor n 10))))
+	)
+)
+;; (write (numberofdigits 123))
+
+(defun isPalindromeHelper(n)
+	(cond
+		((zerop n) 0)
+		(t (+ (* (expt 10 (- (numberofdigits n) 1)) (mod n 10)) (isPalindromeHelper (floor n 10))))
+	)
+)
+
+(defun isPalindrome(n)
+	(= n (isPalindromeHelper n))
+)
+(write (isPalindrome 721127))
+
+
 (defun removelast(l)
 	(cond
 		((= (length l) 1) ())
@@ -20,8 +41,7 @@
 		(t (append (lastelement l) (reverser (removelast l))))
 	)
 )
-(write (reverser '(5 6 7 8 9)))
-;; (write (cdr '(7 8 9)))
+;; (write (reverser '(5 6 7 8 9)))
 
 (defun ismember(l x)
 	(cond 
