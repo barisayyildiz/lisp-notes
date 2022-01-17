@@ -1,3 +1,21 @@
+
+
+;; ;; return l[p] == e
+;; (defun findit(l e p)
+;; 	(cond
+;; 		((< (length l) p) Nil)
+
+;; 		((= p 1) (eq (car l) e))
+
+;; 		(t
+;; 			(findit (cdr l) e (- p 1))
+;; 		)
+
+;; 	)
+;; )
+;; (write (findit '(5 4 3 2 7 1 8) 7 5))
+
+
 ;; (defun minimum(l)
 ;; 	;; length is 1
 ;; 	(if (= (length l) 1)
