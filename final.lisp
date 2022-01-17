@@ -1,3 +1,13 @@
+(defun isPalindromeString(str start end)
+	(cond
+		((or (= start end) (= 1 (- end start))) T)
+		((and (char= (char str start) (char str end)) (isPalindromeString str (+ start 1) (- end 1))) T)
+		(t Nil)
+	)
+)
+;; (setq mystring "ey edip adanada pide ye")
+;; (write (isPalindromeString mystring 0 (- (length mystring) 1)))
+
 (defun numberofdigits(n)
 	(cond
 		((zerop n) 0)
@@ -16,7 +26,7 @@
 (defun isPalindrome(n)
 	(= n (isPalindromeHelper n))
 )
-(write (isPalindrome 721127))
+;; (write (isPalindrome 721127))
 
 
 (defun removelast(l)
