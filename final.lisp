@@ -1,3 +1,11 @@
+(defun removelast(l)
+	(cond
+		((= (length l) 1) ())
+		(t (cons (car l) (removelast (cdr l))))
+	)
+)
+;; (write (removelast '(4 5 6 7)))
+
 (defun lastelement(l)
 	(cond
 		((= (length l) 1) (car l))
@@ -6,13 +14,14 @@
 )
 ;; (write (lastelement '(4 5 6 7)))
 
-(defun removelast(l)
+(defun reverser(l)
 	(cond
-		((= (length l) 1) ())
-		(t (cons (car l) (removelast (cdr l))))
+		((= (length l) 1) (car l))
+		(t (append (lastelement l) (reverser (removelast l))))
 	)
 )
-;; (write (removelast '(4 5 6 7)))
+(write (reverser '(5 6 7 8 9)))
+;; (write (cdr '(7 8 9)))
 
 (defun ismember(l x)
 	(cond 
